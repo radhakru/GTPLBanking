@@ -12,11 +12,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+//import org.testng.annotations.BeforeClass;
+//import org.testng.annotations.BeforeTest;
+
+
+
 
 public class BaseClass {
 	public WebDriver driver;
 	public Properties propti;
-
+	
+	
 	public WebDriver CommonBrowser() throws IOException {
 		propti = new Properties();
 		FileInputStream fileread = new FileInputStream(
@@ -40,7 +46,9 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		return driver;
 	}
-
+	
+	
+	
 	public String getScreenshort(String failtestcase,WebDriver driver) throws IOException {
 		TakesScreenshot ts=(TakesScreenshot)driver;
 		File Source=ts.getScreenshotAs(OutputType.FILE);

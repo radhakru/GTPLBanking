@@ -1,5 +1,6 @@
 package Home;
 
+
 import java.io.IOException;
 import java.time.Duration;
 
@@ -7,11 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-
 import org.testng.annotations.Test;
 
 import PageObject.LandingPage;
@@ -28,13 +26,11 @@ public class TestCase extends BaseClass {
 		driver = CommonBrowser();
 		
 	}
-	
-
 	@Test
 	// (dataProvider = "getdata")
 	// (String searchname, String text) throws IOException
 	public void invalidusername()   {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("land on webpage");
 		lp = new LandingPage(driver);
@@ -44,22 +40,24 @@ public class TestCase extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		lp.clickonloginbutton();
 		log.info("click on login button");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Assert.assertEquals(driver.switchTo().alert().getText(), ExceptedAlert);
 		log.info("assert condition");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.switchTo().alert().accept();
 		log.info("Accept alert");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.navigate().back();
 		log.info("back to the home page for Screenshot");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		log.info("wait 20 sec ");
 		Assert.assertEquals(driver.getTitle(), ExceptedTitle);
 		
 	}
 
 	@Test
 	public void invalidpassword() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("Land on the Webpage");
 		lp = new LandingPage(driver);
@@ -69,21 +67,23 @@ public class TestCase extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		lp.clickonloginbutton();
 		log.info("User click on login button");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Assert.assertEquals(driver.switchTo().alert().getText(), ExceptedAlert);
 		log.info("assert condition");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.switchTo().alert().accept();
 		log.info("Accept alert");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		log.info("navigate to home page for screenshot");
 		driver.navigate().back();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		log.info("navigate to home page for screenshot");
+		log.info("wait 10 sec");
 		Assert.assertEquals(driver.getTitle(), ExceptedTitle);
 
 	}
 	@Test
 	public void invalidusernameandpassword() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("Land on the WebPage");
 		lp=new LandingPage(driver);
@@ -98,21 +98,21 @@ public class TestCase extends BaseClass {
 		log.info("user click on login button");
 		Assert.assertEquals(driver.switchTo().alert().getText(),ExceptedAlert);
 		log.info("Assert condition is True");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.switchTo().alert().accept();
 		log.info("Accept alert");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.navigate().back();
 		log.info("Back to the home page");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-		log.info("Wait 50 sec");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		log.info("Wait 20 sec");
 		Assert.assertEquals(driver.getTitle(), ExceptedTitle);
 		
 		
 	}
 	@Test
 	public void validusername() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));	
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("Land on the Webpage");
 		lp=new LandingPage(driver);
@@ -124,13 +124,13 @@ public class TestCase extends BaseClass {
 		log.info("click on login button");
 		Assert.assertEquals(driver.switchTo().alert().getText(), ExceptedAlert);
 		log.info("Assert condition is True");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.switchTo().alert().accept();
 		log.info("Accept Alert");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.navigate().back();
 		log.info("Back to the home page");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		log.info("Wait 30 sec");
 		Assert.assertEquals(driver.getTitle(), ExceptedTitle);
 		
@@ -138,7 +138,7 @@ public class TestCase extends BaseClass {
 	}
 	@Test
 	public void validpassword() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("Land on the Webpage");
 		lp=new LandingPage(driver);
@@ -153,10 +153,10 @@ public class TestCase extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.switchTo().alert().accept();
 		log.info("Accept Alert");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.navigate().back();
 		log.info("Back to the Home page");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		log.info("Wait 10 seconds after close the webpage");
 		Assert.assertEquals(driver.getTitle(),ExceptedTitle);
 		
@@ -164,7 +164,7 @@ public class TestCase extends BaseClass {
 	}
 	@Test
 	public void userboxfieldwithonlynumerials() {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get(propti.getProperty("NewUrl"));
 		log.info("Land on the Webpage");
 		lp=new LandingPage(driver);
@@ -178,15 +178,15 @@ public class TestCase extends BaseClass {
 		log.info("Click on login button");
 		Assert.assertEquals(driver.switchTo().alert().getText(), ExceptedAlert);
 		log.info("Alert condition is True");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		log.info("Wait 10 seconds after that Accept alert");
 		driver.switchTo().alert().accept();
 		log.info("Accept alert");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		log.info("Wait 20 seconds After that navigate to homepage");
 		driver.navigate().back();
 		log.info("Back to the home page for Screenshot");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		log.info("Wait 20 seconds after close the browser");
 		Assert.assertEquals(driver.getTitle(), ExceptedTitle);
 		
@@ -194,7 +194,12 @@ public class TestCase extends BaseClass {
 	}
 	
 	
-	
+	@AfterTest
+	public void teardown() {
+		driver.close();
+		
+	}
+
 	
 	
 	
@@ -214,10 +219,5 @@ public class TestCase extends BaseClass {
 	  }
 	 */
 
-	@AfterTest
-	public void teardown() {
-		driver.close();
-		
-	}
-
+	
 }
